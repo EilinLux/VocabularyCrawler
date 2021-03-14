@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="it">
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="language" content="it"> 
+  <meta name="Copyright" content="Copyright GialloZafferano s.r.l."> 
+  <title>Blog di GialloZafferano</title> 
+  <meta name="title" content="Blog di GialloZafferano"> 
+  <meta name="description" content="Ricette semplici e gustose, come le sai fare tu: scopri i blog di Giallo Zafferano"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1"> 
+  <meta property="og:title" content="Blog di GialloZafferano"> 
+  <meta property="og:description" content="Ricette semplici e gustose, come le sai fare tu: scopri i blog di Giallo Zafferano"> 
+  <meta name="google-site-verification" content="Tz0f2uCTNs6GHqPp_udHNXeKFYP0yQGvR3BxB9BGkFM"> 
+  <meta name="p:domain_verify" content="945c5a4670ad11954ea2196e03465f53"> 
+  <script type="text/javascript">
+		var startPageTimes = {
+			performanceNow : performance.now(),
+			dateNow: Date.now()
+		};
+		console.log('startPageTimes per gpt_strip: '+startPageTimes.performanceNow+' - '+startPageTimes.dateNow);
+	</script> 
+  <!-- CSS POLYFILL --> 
+  <script type="text/javascript">
+        var isCSSLoaded = false;
+
+        function sendCSSLoadedEvent(){
+            isCSSLoaded = true;
+            var loadedCSS = document.createEvent("Event");
+            loadedCSS.initEvent("loadedCSS", true, false);
+            document.dispatchEvent(loadedCSS);
+        };
+    </script> 
+  <script type="text/javascript">
+        /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+        /* This file is meant as a standalone workflow for
+        - testing support for link[rel=preload]
+        - enabling async CSS loading in browsers that do not support rel=preload
+        - applying rel preload css once loaded, whether supported or not.
+        */
+        (function( w ){
+            "use strict";
+            // rel=preload support test
+            if( !w.loadCSS ){
+                w.loadCSS = function(){};
+            }
+            // define on the loadCSS obj
+            var rp = loadCSS.relpreload = {};
+            // rel=preload feature support test
+            // runs once and returns a function for compat purposes
+            rp.support = (function(){
+                var ret;
+                try {
+                    ret = w.document.createElement( "link" ).relList.supports( "preload" );
+                } catch (e) {
+                    ret = false;
+                }
+                return function(){
+                    return ret;
+                };
+            })();
+
+            // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+            // then change that media back to its intended value on load
+            rp.bindMediaToggle = function( link ){
+                // remember existing media attr for ultimate state, or default to 'all'
+                var finalMedia = link.media || "all";
+
+                // console.log(link.href);
+                function enableStylesheet(){
+                    link.media = finalMedia;
+                }
+
+                // bind load handlers to enable media
+                if( link.addEventListener ){
+                    link.addEventListener( "load", enableStylesheet );
+                } else if( link.attachEvent ){
+                    link.attachEvent( "onload", enableStylesheet );
+                }
+
+                // Set rel and non-applicable media type to start an async request
+                // note: timeout allows this to happen async to let rendering continue in IE
+                setTimeout(function(){
+                    link.rel = "stylesheet";
+                    link.media = "only x";
+                });
+                // also enable media after 3 seconds,
+                // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+                setTimeout( enableStylesheet, 3000 );
+            };
+
+            // loop through link elements in DOM
+            rp.poly = function(){
+                // double check this to prevent external calls from running
+                if( rp.support() ){
+                    return;
+                }
+                var links = w.document.getElementsByTagName( "link" );
+                for( var i = 0; i < links.length; i++ ){
+                    var link = links[ i ];
+                    // qualify links to those with rel=preload and as=style attrs
+                    if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+                        // prevent rerunning on link
+                        link.setAttribute( "data-loadcss", true );
+                        // bind listeners to toggle media back
+                        rp.bindMediaToggle( link );
+                    }
+                }
+            };
+
+            // if unsupported, run the polyfill
+            if( !rp.support() ){
+                // run once at least
+                rp.poly();
+
+                // rerun poly on an interval until onload
+                var run = w.setInterval( rp.poly, 500 );
+                if( w.addEventListener ){
+                    w.addEventListener( "load", function(){
+                        rp.poly();
+                        w.clearInterval( run );
+                    });
+                } else if( w.attachEvent ){
+                    w.attachEvent( "onload", function(){
+                        rp.poly();
+                        w.clearInterval(run);
+                    });
+                }
+            }
+
+            // commonjs
+            if( typeof exports !== "undefined" ){
+                exports.loadCSS = loadCSS;
+            } else {
+                w.loadCSS = loadCSS;
+            }
+        }( typeof global !== "undefined" ? global : this ) );
+	</script> 
+  <script type="text/javascript">
+        var styleCheck = 0, styleLoad = 0;
+        function checkStyleLoad(_t) {
+            setTimeout(function() {
+                if(styleLoad!=0){
+                    return false;
+                }
+                var styleLoad = 1;
+                var styleFadeIn = document.createElement('style'),
+                cssFadeIn = 'body {opacity:1;}';
+                styleFadeIn.appendChild(document.createTextNode(cssFadeIn));
+                document.head.appendChild(styleFadeIn);
+            },5000);
+
+            var stiliEl = document.querySelectorAll('link[as=style]');
+            var stiliElLen = stiliEl.length;
+            _t.onload=null;
+            _t.rel='stylesheet';
+
+            if(styleLoad!=0){
+                return false;
+            };
+
+            for (var i=0; i<stiliElLen; i++) {
+                if(stiliEl[i].getAttribute('rel')=='preload') {
+                    return false;
+                }
+            }
+            if(loadCSS.relpreload.support()) {
+                styleLoad = 1;
+                var styleFadeIn = document.createElement('style'),
+                cssFadeIn = 'body {opacity:1;}';
+                styleFadeIn.appendChild(document.createTextNode(cssFadeIn));
+                document.head.appendChild(styleFadeIn);
+
+                sendCSSLoadedEvent();
+                console.log('Tutti gli stili caricati - Preload');
+            } else  {
+                setTimeout(function() {
+                    if(styleLoad!=0){
+                        return false;
+                    }
+                    styleLoad = 1;
+                    var styleFadeIn = document.createElement('style'),
+                    cssFadeIn = 'body {opacity:1;}';
+                    styleFadeIn.appendChild(document.createTextNode(cssFadeIn));
+                    document.head.appendChild(styleFadeIn);
+
+                    sendCSSLoadedEvent();
+                    console.log('Tutti gli stili caricati - No preload');
+                },350);
+            }
+        }
+	</script> 
+  <!-- END CSS POLYFILL --> 
+  <style>
+	body {
+	opacity: 0;
+	-webkit-transition: opacity .15s ease-in-out;
+	-o-transition: opacity .15s ease-in-out;
+	transition: opacity .15s ease-in-out;
+	}
+	</style> 
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,800" as="style" onload="checkStyleLoad(this);"> 
+  <noscript>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,800">
+  </noscript> 
+  <link rel="preload" href="style/common.css?cb=2019.03.26.16.00" as="style" onload="checkStyleLoad(this);"> 
+  <noscript>
+   <link rel="stylesheet" href="style/common.css?cb=2019.03.26.16.00">
+  </noscript> 
+  <link rel="preload" href="style/superheader.css?cb=2019.03.26.16.00" as="style" onload="checkStyleLoad(this);"> 
+  <noscript>
+   <link rel="stylesheet" href="style/superheader.css?cb=2019.03.26.16.00">
+  </noscript> 
+  <link rel="preload" href="style/blog.css?cb=2019.09.06.9.00" as="style" onload="checkStyleLoad(this);"> 
+  <noscript>
+   <link rel="stylesheet" href="style/blog.css?cb=2019.04.01.14.00">
+  </noscript> 
+  <link rel="preload" href="style/print.css?cb=2019.03.26.16.00" as="style" onload="checkStyleLoad(this);"> 
+  <noscript>
+   <link rel="stylesheet" href="style/print.css?cb=2019.03.26.16.00">
+  </noscript> 
+  <link rel="preload" href="style/swiper.min.css" as="style" onload="checkStyleLoad(this);"> 
+  <noscript>
+   <link rel="stylesheet" href="style/swiper.min.css">
+  </noscript> 
+  <link rel="preload" href="style/swiper-structure.css?cb=2019.03.26.16.00" as="style" onload="checkStyleLoad(this);"> 
+  <noscript>
+   <link rel="stylesheet" href="style/swiper-structure.css?cb=2019.03.26.16.00">
+  </noscript> 
+  <link rel="preload" href="style/home.css?cb=2019.03.26.16.00" as="style" onload="checkStyleLoad(this);"> 
+  <noscript>
+   <link rel="stylesheet" href="style/home.css?cb=2019.03.26.16.00">
+  </noscript> 
+  <link rel="shortcut icon" href="icona.ico" type="image/ico"> 
+  <!-- ANALYTICS --> 
+  <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-678608-2', 'auto');
+        ga('require', 'displayfeatures')
+        ga('set', 'anonymizeIp', true);
+        ga('send', 'pageview');
+	</script> 
+  <!-- END ANALYTICS --> 
+  <script>
+        function isConsentGiven (siteId,cookiePolicyId){
+            var cs = document.cookie.split(';');
+            for (var i = 0; i < cs.length; i++) {
+                while (cs[i].charAt(0) == ' ') cs[i] = cs[i].substring(1);
+                if(cs[i].indexOf('_iub_cs-s'+ siteId) == 0||cs[i].indexOf('_iub_cs-'+ cookiePolicyId) == 0) return true;
+            }
+            return false;
+        }
+	</script> 
+ </head> 
+ <body class="gz-index giallozafferano"> 
+  <div id="fb-root"></div> 
+  <div class="gz-page"> 
+   <div class="gz-blog-header-container gz-blog-hero"> 
+    <header class="gz-blog-header"> 
+     <div class="gz-blog-hamburger" id="gz-blog-hamburger">
+      <span></span>
+     </div> 
+     <h1 class="gz-blog-logo"> <a href="http://blog.giallozafferano.it/community/" title="I Blog di GialloZafferano">GialloZafferano Blog</a> </h1> 
+     <nav class="gz-blog-nav" id="gz-blog-nav"> 
+      <ul> 
+       <li><a href="http://blog.giallozafferano.it/community/crea-blog.php">Crea blog</a></li> 
+       <li><a title="Disclaimer" href="http://it.altervista.org/disclaimer.php">Disclaimer</a></li> 
+       <li><a href="http://tutorial.altervista.org/" target="_blank">Tutorial</a></li> 
+       <li> <a class="gz-login-button" href="https://aa.altervista.org/index.php?client_id=altervista&amp;response_type=code&amp;lang=it&amp;group=giallozafferano"> <span class="gz-icon"> 
+          <svg x="0px" y="0px" width="16px" height="20px" viewbox="0 0 16 20" enable-background="new 0 0 16 20" fill="none" stroke="#ffffff" stroke-width="1.2"> 
+           <path d="M12.55,7.125v-1.75 C12.549,2.959,10.591,1.001,8.175,1C5.759,1.001,3.801,2.959,3.8,5.375v1.75 M3.625,7.125H2.75C1.787,7.125,1,7.912,1,8.875v8.75
+									c0,0.963,0.787,1.75,1.75,1.75h10.5c0.963,0,1.75-0.787,1.75-1.75v-8.75c0-0.963-0.787-1.75-1.75-1.75h-0.875H3.625z" />
+          </svg> </span> Login </a> </li> 
+      </ul> 
+     </nav> 
+     <div class="by-altervista"> 
+      <a href="https://it.altervista.org/" target="_blank">by Altervista</a> 
+     </div> 
+     <div class="gz-blog-login"> 
+      <span class="powered-by-altervista"></span> 
+      <a class="gz-login-button" href="https://aa.altervista.org/index.php?client_id=altervista&amp;response_type=code&amp;lang=it&amp;group=giallozafferano"> <span class="gz-icon"> 
+        <svg x="0px" y="0px" width="16px" height="20px" viewbox="0 0 16 20" enable-background="new 0 0 16 20" fill="none" stroke="#ffffff" stroke-width="1.2"> 
+         <path d="M12.55,7.125v-1.75 C12.549,2.959,10.591,1.001,8.175,1C5.759,1.001,3.801,2.959,3.8,5.375v1.75 M3.625,7.125H2.75C1.787,7.125,1,7.912,1,8.875v8.75
+							c0,0.963,0.787,1.75,1.75,1.75h10.5c0.963,0,1.75-0.787,1.75-1.75v-8.75c0-0.963-0.787-1.75-1.75-1.75h-0.875H3.625z" />
+        </svg> </span> Login </a> 
+     </div> 
+    </header> 
+    <div class="gz-call-action"> 
+     <h2>Partecipa anche tu</h2> 
+     <p>Scrivi, pubblica e fatti conoscere dalla rete con il tuo blog su Giallo Zafferano</p> 
+     <p> <a class="gz-action-button" href="http://blog.giallozafferano.it/community/crea-blog.php" title="Apri il tuo blog">Crea il tuo blog</a> </p> 
+    </div> 
+   </div> 
+   <main class="gz-wrapper gz-sitewidth"> 
+    <div class="gz-innerwrapper gz-mBottom4x gz-fullbg"> 
+     <p class="gz-disclaimer"> La community di Blogger di "Giallozafferano" ti consente di aprire il tuo Blog di "cucina" sotto il dominio Blog.Giallozafferano.it. Giallozafferano ti consente di aprire il tuo blog, di cui manterrai tutti i diritti e le responsabilità (<a href="https://it.altervista.org/disclaimer.php" target="_blank">leggi disclaimer</a>), registrandoti e utilizzando i servizi di Hosting di Altervista (<a href="https://it.altervista.org/regolamento.php" target="_blank">leggi i Termini e le condizioni</a>) </p> 
+    </div> 
+    <div class="gz-innerwrapper"> 
+    </div> 
+   </main>
+  </div>
+  <!-- .gz-wrapper --> 
+  <footer class="gz-footer"> 
+   <div class="gz-sitewidth"> 
+    <div class="altervista-logo"> 
+     <a href="//it.altervista.org/" title="Altervista"> <img src="style/images/logo-altervista.svg" width="158" height="30" alt="Altervista"> </a> 
+    </div> 
+    <div class="row footer-links"> 
+     <div class="col-xs-6 col-sm-3 col-3"> 
+      <ul class="footer-nav"> 
+       <h5>Altervista</h5> 
+       <li><a href="http://blog.altervista.org/it/">News</a></li> 
+       <li><a href="//it.altervista.org/crea-sito-gratis.php">Hosting</a></li> 
+       <li><a href="//it.altervista.org/crea-blog-gratis.php">Crea blog</a></li> 
+       <li><a href="http://forum.it.altervista.org">Forum</a></li> 
+      </ul> 
+     </div> 
+     <div class="col-xs-6 col-sm-3 col-3"> 
+      <ul class="footer-nav"> 
+       <h5>Azienda</h5> 
+       <li><a href="//it.altervista.org/chi-siamo.php">Chi siamo</a></li> 
+       <li><a href="//it.altervista.org/rassegna-stampa.php">Rassegna stampa</a></li> 
+       <li><a href="//it.altervista.org/contatti.php">Contatti</a></li> 
+       <li><a href="//it.altervista.org/opinioni.php">Opinioni</a></li> 
+      </ul> 
+     </div> 
+     <div class="col-xs-6 col-sm-3 col-3"> 
+      <ul class="footer-nav"> 
+       <h5>Regolamento</h5> 
+       <li><a href="//it.altervista.org/disclaimer.php">Disclaimer</a></li> 
+       <li><a href="//it.altervista.org/privacy.php">Privacy</a></li> 
+       <li><a href="//it.altervista.org/regolamento.php">Condizioni</a></li> 
+       <li><a href="//it.altervista.org/contatti.php#abuse">Segnalazione abusi</a></li> 
+      </ul> 
+     </div> 
+     <div class="col-xs-6 col-sm-3 col-3"> 
+      <ul class="footer-nav"> 
+       <h5>Community</h5> 
+       <li><a href="http://help.altervista.org/">FAQ</a></li> 
+       <li><a href="//it.altervista.org/supporto.php">Supporto</a></li> 
+       <li><a href="//it.altervista.org/ringraziamenti.php">Ringraziamenti</a></li> 
+       <li><a href="//it.altervista.org/brand.php">Brand</a></li> 
+      </ul> 
+     </div> 
+    </div>
+    <!-- .row --> 
+    <p class="footer-credits"> <strong style="color:#7b69a2;">© 2021 Mondadori Media S.p.A.</strong> - via Bianca di Savoia 12 - 20122 Milano - P.IVA 08009080964 - riproduzione riservata </p> 
+   </div> 
+  </footer> 
+  <!-- .gz-page --> 
+  <!-- SCRIPTS LOADER --> 
+  <script>
+function scriptsLoader(){
+    var me = this;
+    me.scripts;
+    me.scrollOffset;
+    me.loadTimeout;
+    me.callback;
+    me.ctrl = false;
+
+    me.init = function(conf){
+        me.scripts = conf.scripts || null;
+        me.scrollOffset = conf.scrollOffset || null;
+        me.loadTimeout = conf.loadTimeout || null;
+        me.callback = conf.callback || null;
+
+        if(!me.scripts){
+            return;
+        }
+
+        if(me.scrollOffset || me.loadTimeout){
+            if(me.scrollOffset){
+                window.addEventListener("scroll", function(){
+                    if(!me.ctrl && window.pageYOffset > me.scrollOffset){
+                        me.ctrl = true;
+                        me.loadScript();
+                    }
+                }, false);
+            }
+
+            if(me.loadTimeout){
+                setTimeout(function() {
+                    if(!me.ctrl){
+                        me.ctrl = true;
+                        me.loadScript();
+                    }
+                }, me.loadTimeout);
+            }
+            return;
+        }
+
+        me.loadScript();
+    };
+
+    me.loader = function(scriptObj, handler){
+        if(scriptObj.src){
+            var script = document.createElement("script");
+            script.src = scriptObj.src;
+            script.async = scriptObj.async || null;
+
+            script.onload = script.onreadystatechange = function(){
+                script.onreadystatechange = script.onload = null;
+                handler();
+            }
+
+            document.head.appendChild(script);
+        }
+    };
+
+    me.loadScript = function(){
+        if(me.scripts.length != 0){
+            me.loader(me.scripts.shift(), me.loadScript);
+        } else {
+            if(me.callback) {
+                window[me.callback]();
+            }
+        }
+    }
+}
+</script> 
+  <!-- END SCRIPTS LOADER --> 
+  <!-- BEGIN Krux Control Tag for "GialloZafferano" --> 
+  <!-- Source: /snippet/controltag?confid=JOVP0w4D&site=GialloZafferano&edit=1 --> 
+  <script class="kxct _iub_cs_activate" data-id="JOVP0w4D" data-timing="async" data-version="1.9" type="text/plain">
+(function(){
+    var k=document.createElement('script');k.type='text/javascript';k.async=true;
+    var m,src=(m=location.href.match(/\bkxsrc=([^&]+)/))&&decodeURIComponent(m[1]);
+    k.src = /^https?:\/\/([a-z0-9_\-\.]+\.)?krxd\.net(:\d{1,5})?\//i.test(src) ? src : src === "disable" ? "" :
+    (location.protocol==="https:"?"https:":"http:")+"//cdn.krxd.net/controltag?confid=JOVP0w4D"
+    ;
+    var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(k,s);
+}());
+</script> 
+  <!-- END Krux Controltag --> 
+  <!-- KRUX RETRIEVE --> 
+  <script>
+    window.Krux||((Krux=function(){Krux.q.push(arguments);}).q=[]);
+    (function(){
+        function retrieve(n){
+            var m, k='kx'+n;
+            if (window.localStorage) {
+                return window.localStorage[k] || "";
+            } else if (navigator.cookieEnabled) {
+                m = document.cookie.match(k+'=([^;]*)');
+                return (m && unescape(m[1])) || "";
+            } else {
+                return '';
+            }
+        }
+        Krux.user = retrieve('user');
+        Krux.kxkuid = retrieve('kuid');
+        Krux.segments = retrieve('segs') && retrieve('segs').split(',') || [];
+    })();
+</script> 
+  <!-- END KRUX RETRIEVE --> 
+  <script src="js/jquery-3.3.1.min.js"></script> 
+  <script>
+( function( $ ) {
+
+	var body, menuToggle, mobileNavigation;	
+	
+	body				= $( 'body' );
+	menuToggle			= $( '#gz-blog-hamburger' );
+	mobileNavigation	= $( '#gz-blog-nav' );
+	
+	menuToggle.on( 'click.type', function() {
+		
+		if( ! mobileNavigation.hasClass('active') ) {
+		mobileNavigation.slideDown(400);
+		mobileNavigation.addClass('active');
+		} else if( mobileNavigation.hasClass('active') ) {
+		mobileNavigation.removeClass('active');
+		mobileNavigation.slideUp(400);
+		}
+		
+		body.toggleClass( 'gz-mobile-menu-open' );
+
+	} );
+	
+} )( jQuery );
+</script> 
+  <script>
+    window.lazySizesConfig = window.lazySizesConfig || {};
+    window.lazySizesConfig.init = false;
+    window.lazySizesConfig.loadMode = 1;
+    window.lazySizesConfig.lazyClass = 'gz-img-lazyload';
+    window.lazySizesConfig.loadingClass = 'gz-img-loading';
+    window.lazySizesConfig.loadedClass = 'gz-img-loaded';
+</script> 
+  <script async src="js/lazysizes.min.js?cb=2019.03.26.16.00"></script> 
+  <script async src="js/common.js?cb=2019.03.26.16.00"></script> 
+  <script>
+    var swiperChain = {
+        scripts: [
+            { src: 'js/swiper.min.js', async: true },
+            { src: 'js/swiperHelper.js', async: true }
+        ],
+        callback: "initSwiperHelper"
+    };
+
+    var swiperChainHandler = new scriptsLoader();
+    swiperChainHandler.init(swiperChain);
+
+    function initSwiperHelper(){
+        swiperHelper = new swiperHelper();
+        if(isCSSLoaded){
+            swiperHelper.init(200);
+            if(!lazySizesConfig.init){
+                lazySizes.init();
+            }
+        } else {
+            document.addEventListener("loadedCSS", function(){
+                swiperHelper.init(200);
+                if(!lazySizesConfig.init){
+                    lazySizes.init();
+                }
+            });
+        }
+    }
+</script> 
+  <!-- FACEBOOK CONNECT --> 
+  <script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/it_IT/all.js#xfbml=1&appId=163677067047051";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script> 
+  <!-- END FACEBOOK CONNECT --> 
+  <!-- Network Common --> 
+  <script async src="https://www.iubenda.com/privacy-policy/81919939/cookie-policy"></script>  
+ </body>
+</html>

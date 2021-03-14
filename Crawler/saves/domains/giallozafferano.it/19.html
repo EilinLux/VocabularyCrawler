@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="it-IT">
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="language" content="it"> 
+  <meta name="title" content="La rivista di Giallozafferano"> 
+  <meta name="description" content=""> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <meta property="og:title" content="Giallozafferano, la cucina nelle tue mani"> 
+  <meta property="og:url" content="https://www.giallozafferano.it/in-edicola/"> 
+  <meta property="og:site_name" content="La rivista di Giallozafferano"> 
+  <meta property="fb:app_id" content=""> 
+  <meta property="og:type" content="article"> 
+  <meta property="og:image" content="/images/speciali/2571/social-cover.jpg"> 
+  <meta property="og:description" content="La nuova rivista di Giallozafferano è ora in edicola! 100 nuove ricette ogni mese che non trovate sul sito e tante novità da scoprire!"> 
+  <meta name="format-detection" content="telephone=no"> 
+  <title>La rivista di Giallozafferano</title> 
+  <link rel="shortcut icon" href="favicon.ico" type="image/ico"> 
+  <link rel="preload" href="/style/fonts/montserrat-v14-latin-300.woff2" as="font" type="font/woff2" crossorigin> 
+  <link rel="preload" href="/style/fonts/montserrat-v14-latin-regular.woff2" as="font" type="font/woff2" crossorigin> 
+  <link rel="preload" href="/style/fonts/montserrat-v14-latin-500.woff2" as="font" type="font/woff2" crossorigin> 
+  <link rel="preload" href="/style/fonts/montserrat-v14-latin-600.woff2" as="font" type="font/woff2" crossorigin> 
+  <link rel="preload" href="/style/fonts/montserrat-v14-latin-800.woff2" as="font" type="font/woff2" crossorigin> 
+  <link rel="preload" href="/style/in-edicola/style.css?cb=c2684cf3d85fda3ba51449c20237a8dfe820a819" as="style"> 
+  <link rel="preload" href="/style/min/superheader.min.css?cb=c2684cf3d85fda3ba51449c20237a8dfe820a819" as="style"> 
+  <link rel="preload" href="/style/footer.css?cb=c2684cf3d85fda3ba51449c20237a8dfe820a819" as="style"> 
+  <!-- CHECK LOGGED USER --> 
+  <script>
+    var aInfos;
+
+    function utf8_decode(str_data) {
+      var tmp_arr = [], i = 0, ac = 0, c1 = 0, c2 = 0, c3 = 0;
+
+      str_data += '';
+
+      while ( i < str_data.length ) {
+        c1 = str_data.charCodeAt(i);
+        if (c1 < 128) {
+          tmp_arr[ac++] = String.fromCharCode(c1);
+          i++;
+        }
+        else if ((c1 > 191) && (c1 < 224))
+        {
+          c2  = str_data.charCodeAt(i+1);
+          tmp_arr[ac++] = String.fromCharCode(((c1 & 31) << 6) | (c2 & 63));
+          i  += 2;
+        }
+        else
+        {
+          c2  = str_data.charCodeAt(i+1);
+          c3  = str_data.charCodeAt(i+2);
+          tmp_arr[ac++] = String.fromCharCode(((c1 & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));
+          i  += 3;
+        }
+      }
+      return tmp_arr.join('');
+    }
+
+    function base64_decode(data) {
+        var b64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
+        o1, o2, o3, h1, h2, h3, h4, bits, i = 0,
+        ac = 0,
+        dec = "",
+        tmp_arr = [];
+        if (!data) { return data; }
+        data += '';
+        do {  // unpack four hexets into three octets using index  points in b64
+            h1 = b64.indexOf(data.charAt(i++));
+            h2 =  b64.indexOf(data.charAt(i++));
+            h3 =  b64.indexOf(data.charAt(i++));
+            h4 =  b64.indexOf(data.charAt(i++));
+            bits = h1<<18 | h2<<12 | h3<<6 | h4;
+            o1 = bits>>16 & 0xff;
+            o2 =  bits>>8 & 0xff;
+            o3 = bits & 0xff;
+            if (h3 == 64) {
+                tmp_arr[ac++] = String.fromCharCode(o1);
+            } else if (h4 == 64) {
+                tmp_arr[ac++] = String.fromCharCode(o1, o2);
+            } else {
+                tmp_arr[ac++] = String.fromCharCode(o1, o2, o3);
+            }
+        } while (i < data.length);
+
+        dec = tmp_arr.join('');
+        dec = utf8_decode(dec);
+        return dec;
+    }
+
+    function getCookie(cookieName) {
+        var asCookies = document.cookie.split("; ");
+        for (var iCnt = 0; iCnt < asCookies.length; iCnt++) {
+            var asCookie = asCookies[iCnt].split("=");
+            if (cookieName == asCookie[0]) {
+                return (unescape(asCookie[1]));
+            }
+        }
+        // SE non esiste il cookie richiesto
+        return("");
+    }
+
+    function userLogged() {
+        var aCookie = base64_decode( getCookie('vb_export') );
+        if ( aCookie == "" ) {
+            return false;
+        } else {
+            aInfos = eval( '(' + aCookie + ')' );
+            if ( aInfos == "" || aInfos['userName'] == undefined || aInfos['userProfile'] == undefined || aInfos['persAvatar'] == undefined || aInfos['userLogoutHash'] == undefined ) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+    }
+
+    function userData(isLogged) {
+        if (isLogged) {
+            return aInfos['userName']+'&&_&&'+aInfos['userLogoutHash'];
+        } else {
+            return '';
+        }
+    }
+
+    var isLogged = userLogged();
+    var uData = userData(isLogged);
+</script> 
+  <!-- END CHECK LOGGED USER --> 
+  <script>
+var registrationUrl = "https://www.giallozafferano.it/utente/registrazione?redirect=";
+var loginUrl = "https://www.giallozafferano.it/utente/login-do.php";
+var redirectUrl = "";
+var recoverPwdUrl = "https://www.giallozafferano.it/utente/recupero-password/";
+var fbLoginUrl = "https://www.facebook.com/v2.10/dialog/oauth?client_id=372884629400015&redirect_uri=https%3A%2F%2Fwww.giallozafferano.it%2Futente%2Flogin-do.php&scope=email";
+var appleLoginUrl = "https://appleid.apple.com/auth/authorize?response_type=code+id_token&response_mode=form_post&client_id=it.giallozafferano.gzricette&redirect_uri=https%3A%2F%2Fwww.giallozafferano.it%2Futente%2Fregistrazione.php&scope=name+email";
+</script> 
+  <style>
+body {
+	opacity: 0;
+	-webkit-transition: opacity .15s ease-in-out;
+	-o-transition: opacity .15s ease-in-out;
+	transition: opacity .15s ease-in-out;
+}
+.gz-superheader{background-color:#fff;height:30px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}.gz-superheader:before{content:"";display:block;width:4px;height:4px;margin-top:6px;margin-right:10px;border:solid #a8a7a6;border-width:0 1px 1px 0;display:inline-block;-webkit-transform:rotate(135deg);-ms-transform:rotate(135deg);transform:rotate(135deg)}.gz-superheader-logo{width:114px;height:21px;background:url(/style/images/logo-giallozafferano.svg) 0 0 no-repeat;background-size:100% 100%}.gz-superheader-logo a{display:block;width:100%;height:100%;text-indent:-9999em}
+</style> 
+  <link rel="stylesheet" href="/style/in-edicola/style.css?cb=c2684cf3d85fda3ba51449c20237a8dfe820a819" type="text/css" media="print" data-media="all" onload="this.media = this.getAttribute('data-media')"> 
+  <noscript>
+   <link rel="stylesheet" media="all" href="/style/in-edicola/style.css?cb=c2684cf3d85fda3ba51449c20237a8dfe820a819">
+  </noscript> 
+  <link rel="stylesheet" href="/style/footer.css?cb=c2684cf3d85fda3ba51449c20237a8dfe820a819" type="text/css" media="print" data-media="all" onload="this.media = this.getAttribute('data-media')"> 
+  <noscript>
+   <link rel="stylesheet" media="all" href="/style/footer.css?cb=c2684cf3d85fda3ba51449c20237a8dfe820a819">
+  </noscript> 
+  <script>
+	function isConsentGiven (siteId,cookiePolicyId){
+		var cs = document.cookie.split(';');
+		for (var i = 0; i < cs.length; i++) {
+			while (cs[i].charAt(0) == ' ') cs[i] = cs[i].substring(1);
+			if(cs[i].indexOf('_iub_cs-s'+ siteId) == 0||cs[i].indexOf('_iub_cs-'+ cookiePolicyId) == 0) return true;
+		}
+		return false;
+	}
+</script> 
+  <!-- ANALYTICS --> 
+  <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-678608-2', 'auto');
+        ga('create', 'UA-170089332-1', 'auto', 'testFe');
+
+        window.startInitAllowAdFeaturesAnalytics= performance.now();
+        if ('requestIdleCallback' in window) {
+            console.log('initAllowAdFeaturesAnalytics init Idle');
+            window.requestIdleCallback(function() {
+                allowAdFeatures();
+            }, { timeout: 1000 })
+        } else {
+            console.log('initAllowAdFeaturesAnalytics init Default');
+            allowAdFeatures();
+        }
+
+        function allowAdFeatures() {
+            console.log('initAllowAdFeaturesAnalytics start time',performance.now()-window.startInitAllowAdFeaturesAnalytics);
+            if(isConsentGiven(1779545, 81919939)) {
+                ga('set', 'allowAdFeatures', true);
+                ga('testFe.set', 'allowAdFeatures', true);
+            } else {
+                ga('set', 'allowAdFeatures', false);
+                ga('testFe.set', 'allowAdFeatures', false);
+            }
+            ga('set', 'anonymizeIp', true);
+            ga('testFe.set', 'anonymizeIp', true);
+        }
+        
+
+                var dimensionValue = 'Standard';
+            ga('set', 'dimension17', dimensionValue);
+
+    </script> 
+ </head> 
+ <body class="home"> 
+  <div class="site" id="page"> 
+   <div class="gz-superheader"> 
+    <div class="gz-superheader-logo">
+     <a href="https://www.giallozafferano.it/" title="Le Ricette di GialloZafferano.it">Le Ricette di GialloZafferano.it</a>
+    </div> 
+   </div> 
+   <div class="site-content" id="content"> 
+    <section class="hero" id="introduzione"> 
+     <div class="container"> 
+      <header class="hero-header rivista"> 
+       <figure> 
+        <a href="https://www.abbonamenti.it/vincolata/r31784?utm_source=Header&amp;utm_campaign=GialloZafferano&amp;utm_medium=ctaHeaderGZ"><img src="/images/speciali/2571/cover.jpg" width="800" height="984" alt="abbonati alla rivista"></a> 
+       </figure> 
+       <h1 class="hero-title">Dal 13 Febbraio in tutte le edicole il nuovo numero di GialloZafferano</h1> 
+      </header> 
+      <div class="hero-content"> 
+       <div class="hero-action"> 
+        <a href="https://www.abbonamenti.it/vincolata/r31784?utm_source=Header&amp;utm_campaign=GialloZafferano&amp;utm_medium=ctaHeaderGZ" class="button large orange">abbonati <span>alla rivista</span></a> 
+        <a href="https://www.mondadoriperte.it/giallo-zafferano-shop.html?utm_source=giallozafferano.it&amp;utm_medium=referral&amp;utm_campaign=shop-inedicola" class="button large violet">shop online</a> 
+       </div> 
+      </div> 
+     </div> 
+    </section>
+    <!-- .hero --> 
+    <section class="contest" id="sfida"> 
+     <div class="container"> 
+      <div class="topic-headline"> 
+       <h3>La sfida di questo numero è:</h3> 
+       <h2 class="main-title">Dolci senza bilancia</h2> 
+       <p class="like"> La votazione è conclusa e il vincitore è Manuel! </p> 
+      </div> 
+     </div> 
+    </section> 
+    <section class="ratings" id="ratings"> 
+     <div class="container"> 
+      <div class="row faces"> 
+       <div class="col-4 col-sm-12"> 
+        <div class="author-thumb traditional"> 
+         <span><img src="https://www.giallozafferano.it/style/in-edicola/images/giovanni.png" alt=""></span> 
+        </div> 
+       </div> 
+       <div class="col-4 col-sm-12"> 
+        <div class="author-thumb veg"> 
+         <span><img src="https://www.giallozafferano.it/style/in-edicola/images/aurora.png" alt=""></span> 
+        </div> 
+       </div> 
+       <div class="col-4 col-sm-12"> 
+        <div class="author-thumb quick"> 
+         <span><img src="https://www.giallozafferano.it/style/in-edicola/images/manuel.png" alt=""></span> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="row flex-row"> 
+       <div class="col-4 col-sm-12"> 
+        <div class="recipe main traditional"> 
+         <header> 
+          <div class="recipe-info"> 
+           <span>la ricetta</span> 
+           <div class="recipe-cat">
+            Tradizionale
+           </div> 
+           <em>di</em> 
+           <strong>Giovanni</strong> 
+          </div> 
+         </header> 
+         <figure class="recipe-thumb"> 
+          <a href="https://ricette.giallozafferano.it/Torta-12-cucchiai.html?fm=1"><img src="https://www.giallozafferano.it/images/230-23079/Torta-12-cucchiai_780x520_wm.jpg" alt=""></a> 
+         </figure> 
+         <h2 class="recipe-title"><a href="https://ricette.giallozafferano.it/Torta-12-cucchiai.html?fm=1">Torta 12 cucchiai</a></h2> 
+         <div class="recipe-rate"> 
+          <div class="vote-button disabled" data-content-id="23079"> 
+           <span class="traditional avatar"><img src="https://www.giallozafferano.it/style/in-edicola/images/giovanni.png"></span> 
+           <span class="status">Vota</span> 
+          </div> 
+          <div class="rate-counter"> 
+           <strong class="n" data-count="14"></strong> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="col-4 col-sm-12"> 
+        <div class="recipe main veg"> 
+         <header> 
+          <div class="recipe-info"> 
+           <span>la ricetta</span> 
+           <div class="recipe-cat">
+            Vegetariana
+           </div> 
+           <em>di</em> 
+           <strong>Aurora</strong> 
+          </div> 
+         </header> 
+         <figure class="recipe-thumb"> 
+          <a href="https://ricette.giallozafferano.it/Quattro-quarti-allo-yogurt.html?fm=1"><img src="https://www.giallozafferano.it/images/230-23078/Quattro-quarti-allo-yogurt_780x520_wm.jpg" alt=""></a> 
+         </figure> 
+         <h2 class="recipe-title"><a href="https://ricette.giallozafferano.it/Quattro-quarti-allo-yogurt.html?fm=1">Quattro quarti allo yogurt</a></h2> 
+         <div class="recipe-rate"> 
+          <div class="vote-button disabled" data-content-id="23078"> 
+           <span class="veg avatar"><img src="https://www.giallozafferano.it/style/in-edicola/images/aurora.png"></span> 
+           <span class="status">Vota</span> 
+          </div> 
+          <div class="rate-counter"> 
+           <strong class="n" data-count="15"></strong> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="col-4 col-sm-12"> 
+        <div class="recipe main quick"> 
+         <header> 
+          <div class="recipe-info"> 
+           <span>la ricetta</span> 
+           <div class="recipe-cat">
+            Veloce
+           </div> 
+           <em>di</em> 
+           <strong>Manuel</strong> 
+          </div> 
+         </header> 
+         <figure class="recipe-thumb"> 
+          <a href="https://ricette.giallozafferano.it/Quadrotti-al-cioccolato.html?fm=1"><img src="https://www.giallozafferano.it/images/230-23080/Quadrotti-al-cioccolato_780x520_wm.jpg" alt=""></a> 
+         </figure> 
+         <h2 class="recipe-title"><a href="https://ricette.giallozafferano.it/Quadrotti-al-cioccolato.html?fm=1">Quadrotti al cioccolato</a></h2> 
+         <div class="recipe-rate"> 
+          <div class="vote-button voted" data-content-id="23080"> 
+           <span class="quick avatar"><img src="https://www.giallozafferano.it/style/in-edicola/images/manuel.png"></span> 
+           <span class="status">Vota</span> 
+          </div> 
+          <div class="rate-counter"> 
+           <strong class="n" data-count="80"></strong> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </section> 
+    <section class="magazine" id="ricette-del-mese"> 
+     <div class="container"> 
+      <h3>Le ricette del mese di Marzo</h3> 
+      <p class="subH3"><b>Ogni mese in edicola tantissime ricette inedite!</b> Scopri qui alcune delle creazioni di Aurora, Giovanni, Manuel.</p> 
+      <div class="row flex-row"> 
+       <div class="col-4 col-sm-4" id="traditional-1"> 
+        <div class="recipe large traditional"> 
+         <figure class="recipe-thumb"> 
+          <a class="read-more" href="https://ricette.giallozafferano.it/Quadrata-agli-asparagi.html?fm=1"><img src="https://www.giallozafferano.it/images/230-23075/Quadrata-agli-asparagi_780x520_wm.jpg" alt="Quadrata agli asparagi"></a> 
+          <div class="author-thumb medium traditional"> 
+           <img src="https://www.giallozafferano.it/style/in-edicola/images/giovanni.png" alt=""> 
+          </div> 
+         </figure> 
+         <h2 class="recipe-title"><a href="https://ricette.giallozafferano.it/Quadrata-agli-asparagi.html?fm=1">Quadrata agli asparagi</a></h2> 
+         <div class="recipe-summary"> 
+          <span>La quadrata agli asparagi è una sfiziosa torta rustica con un ricco ripieno di uova e formaggio e con gli asparagi che insaporiranno il tutto!</span> 
+          <a class="read-more" href="https://ricette.giallozafferano.it/Quadrata-agli-asparagi.html?fm=1">Vai alla Ricetta</a> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="col-4 col-sm-4" id="veg-2"> 
+        <div class="recipe large veg"> 
+         <figure class="recipe-thumb"> 
+          <a class="read-more" href="https://ricette.giallozafferano.it/Tarte-salata-ai-4-gusti.html?fm=1"><img src="https://www.giallozafferano.it/images/230-23074/Tarte-salata-ai-4-gusti_780x520_wm.jpg" alt="Tarte salata ai 4 gusti"></a> 
+          <div class="author-thumb medium veg"> 
+           <img src="https://www.giallozafferano.it/style/in-edicola/images/aurora.png" alt=""> 
+          </div> 
+         </figure> 
+         <h2 class="recipe-title"><a href="https://ricette.giallozafferano.it/Tarte-salata-ai-4-gusti.html?fm=1">Tarte salata ai 4 gusti</a></h2> 
+         <div class="recipe-summary"> 
+          <span>La tarte salata ai 4 gusti è un mix molto sfizioso di ben quattro matrimoni d'amore e con un'unica base croccante che ben sapranno intrigarvi.</span> 
+          <a class="read-more" href="https://ricette.giallozafferano.it/Tarte-salata-ai-4-gusti.html?fm=1">Vai alla Ricetta</a> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="col-4 col-sm-4" id="quick-3"> 
+        <div class="recipe large quick"> 
+         <figure class="recipe-thumb"> 
+          <a class="read-more" href="https://ricette.giallozafferano.it/Tortini-di-patate-spinaci-e-radicchio.html?fm=1"><img src="https://www.giallozafferano.it/images/230-23076/Tortini-di-patate-spinaci-e-radicchio_780x520_wm.jpg" alt="Tortini di patate spinaci e radicchio"></a> 
+          <div class="author-thumb medium quick"> 
+           <img src="https://www.giallozafferano.it/style/in-edicola/images/manuel.png" alt=""> 
+          </div> 
+         </figure> 
+         <h2 class="recipe-title"><a href="https://ricette.giallozafferano.it/Tortini-di-patate-spinaci-e-radicchio.html?fm=1">Tortini di patate spinaci e radicchio</a></h2> 
+         <div class="recipe-summary"> 
+          <span>I tortini di patate spinaci e radicchio in questa versione in cocotte saranno molto apprezzati grazie alla perfetta unione e il ripieno di formaggio.</span> 
+          <a class="read-more" href="https://ricette.giallozafferano.it/Tortini-di-patate-spinaci-e-radicchio.html?fm=1">Vai alla Ricetta</a> 
+         </div> 
+        </div> 
+       </div> 
+      </div>
+      <!-- .row --> 
+     </div>
+     <!-- .container --> 
+    </section>
+    <!-- .magazine --> 
+   </div>
+   <!-- .site-content --> 
+   <div id="flyfirst-mobile-placement"></div> 
+   <div id="flyfirst-slot"></div> 
+   <footer class="gz-footer gz-elevator-ame-base" id="gz-footer"> 
+    <div class="gz-sitewidth"> 
+     <div class="gz-row"> 
+      <a class="gz-logo-footer" href="https://www.giallozafferano.it/" title="Ricette di cucina - Le ricette di GialloZafferano">Giallozafferano</a> 
+      <div class="gz-text-footer"> 
+       <p> <strong>© 2021 Mondadori Media S.p.A.</strong> - via Bianca di Savoia 12 - 20122 Milano - P.IVA 08009080964 - riproduzione riservata </p> 
+       <ul> 
+        <li><a title="Chi siamo" href="https://www.giallozafferano.it/staff/chisiamo.html">Chi siamo</a></li> 
+        <li><a title="Condizioni di servizio" href="http://privacy.stbm.it/site/giallozafferano/condizioni-generali.html" onclick="footerlinks(this.href,'condizioni'); return false">Condizioni d'uso</a></li> 
+        <li><a title="Privacy" href="https://digital.mondadori.it/privacy/informativasiti/mondadorieditore.html" onclick="footerlinks(this.href,'informativa'); return false">Privacy</a></li> 
+        <li><a title="Privacy Policy" href="http://www.mondadori.it/privacy-policy" onclick="footerlinks(this.href,'privacy'); return false">Privacy Policy</a></li> 
+        <li><a title="Cookie Privacy" href="https://www.iubenda.com/privacy-policy/81919939/cookie-policy" onclick="footerlinks(this.href,'cookiepolicy'); return false">Cookie Policy</a></li> 
+        <li><a title="Personalizza tracciamento" href="#" class="iubenda-advertising-preferences-link">Personalizza tracciamento</a></li> 
+        <li><a title="Disclaimer" href="https://www.giallozafferano.it/static/disclaimer.html" onclick="footerlinks(this.href,'disclaimer'); return false">Disclaimer</a></li> 
+        <li><a title="Gruppo Mondadori" href="https://www.mondadori.it">Gruppo Mondadori</a></li> 
+        <li><a title="I blog di Giallozafferano" href="https://blog.giallozafferano.it/community/">I blog di Giallozafferano</a></li> 
+        <li><a title="In edicola" href="https://www.giallozafferano.it/in-edicola">In edicola</a></li> 
+       </ul> 
+      </div> 
+     </div> 
+    </div> 
+   </footer> 
+  </div>
+  <!-- .site --> 
+  <script src="/js/jquery-3.3.1.min.js"></script> 
+  <script>
+$(document).ready(function() {
+
+	if ( location.hash == "#thanks" ) {
+		$(function(){
+			$('#overlay').fadeIn('fast');
+			$('#message').fadeIn('slow');
+		});
+	}
+
+	$(".button-close").click(
+		function(){
+		$('#overlay').fadeOut('fast');
+		$('#message').hide();
+	});
+
+	$("#overlay").click(
+		function(){
+		$(this).fadeOut('fast');
+		$('#message').hide();
+	});
+
+});
+
+</script> 
+  <!-- Risposta invio form  --> 
+  <div id="overlay" style="display:none;"></div> 
+  <div id="message"> 
+   <div class="button-close">
+    <span></span>
+   </div> 
+   <h4>La ricetta è stata inviata correttamente</h4> 
+   <p>Se dovessi essere selezionato riceverai una nostra mail.<br>Grazie di aver partecipato!</p> 
+  </div> 
+  <!-- TEALIUM --> 
+  <script>
+        (function(a,b,c,d)
+            {
+                a='//tags.tiqcdn.com/utag/mediaset/dig.giallozafferano.it/prod/utag.js';
+                b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.async=true;
+                a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
+            }
+        )();
+    </script> 
+  <!-- END TEALIUM --> 
+  <style>html body {opacity:1;}</style>   
+ </body>
+</html>

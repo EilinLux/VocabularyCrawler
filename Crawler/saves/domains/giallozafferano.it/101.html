@@ -1,0 +1,813 @@
+<!doctype html>
+<html lang="it-IT">
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="language" content="it"> 
+  <meta name="title" content="Funtip - GialloZafferano.it"> 
+  <meta name="description" content=""> 
+  <meta name="robots" content="noindex">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <title>Giallozafferano Funtip -  4 primi piatti per la domenica in 1 minuto </title> 
+  <link rel="shortcut icon" href="/favicon.ico" type="image/ico"> 
+  <link rel="preload" href="/style/fonts/montserrat-v14-latin-300.woff2" as="font" type="font/woff2" crossorigin> 
+  <link rel="preload" href="/style/fonts/montserrat-v14-latin-regular.woff2" as="font" type="font/woff2" crossorigin> 
+  <link rel="preload" href="/style/fonts/montserrat-v14-latin-500.woff2" as="font" type="font/woff2" crossorigin> 
+  <link rel="preload" href="/style/fonts/montserrat-v14-latin-600.woff2" as="font" type="font/woff2" crossorigin> 
+  <link rel="preload" href="/style/fonts/montserrat-v14-latin-800.woff2" as="font" type="font/woff2" crossorigin> 
+  <link rel="preload" href="/style/reset.css?cb=c2684cf3d85fda3ba51449c20237a8dfe820a819" as="style"> 
+  <link rel="preload" href="/style/superheader.css?cb=c2684cf3d85fda3ba51449c20237a8dfe820a819" as="style"> 
+  <link rel="preload" href="/style/funtip/style.css?cb=c2684cf3d85fda3ba51449c20237a8dfe820a819" as="style"> 
+  <link rel="preload" href="/style/footer.css?cb=c2684cf3d85fda3ba51449c20237a8dfe820a819" as="style"> 
+  <link rel="preload" href="https://dafne.sirio.stbm.it/pubbliredazionale/common/css/swiper.min.css" as="style"> 
+  <link rel="preload" href="https://dafne.sirio.stbm.it/pubbliredazionale/gz/css/pubbliredazionale.css" as="style"> 
+  <!-- CHECK LOGGED USER --> 
+  <script>
+    var aInfos;
+
+    function utf8_decode(str_data) {
+      var tmp_arr = [], i = 0, ac = 0, c1 = 0, c2 = 0, c3 = 0;
+
+      str_data += '';
+
+      while ( i < str_data.length ) {
+        c1 = str_data.charCodeAt(i);
+        if (c1 < 128) {
+          tmp_arr[ac++] = String.fromCharCode(c1);
+          i++;
+        }
+        else if ((c1 > 191) && (c1 < 224))
+        {
+          c2  = str_data.charCodeAt(i+1);
+          tmp_arr[ac++] = String.fromCharCode(((c1 & 31) << 6) | (c2 & 63));
+          i  += 2;
+        }
+        else
+        {
+          c2  = str_data.charCodeAt(i+1);
+          c3  = str_data.charCodeAt(i+2);
+          tmp_arr[ac++] = String.fromCharCode(((c1 & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));
+          i  += 3;
+        }
+      }
+      return tmp_arr.join('');
+    }
+
+    function base64_decode(data) {
+        var b64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
+        o1, o2, o3, h1, h2, h3, h4, bits, i = 0,
+        ac = 0,
+        dec = "",
+        tmp_arr = [];
+        if (!data) { return data; }
+        data += '';
+        do {  // unpack four hexets into three octets using index  points in b64
+            h1 = b64.indexOf(data.charAt(i++));
+            h2 =  b64.indexOf(data.charAt(i++));
+            h3 =  b64.indexOf(data.charAt(i++));
+            h4 =  b64.indexOf(data.charAt(i++));
+            bits = h1<<18 | h2<<12 | h3<<6 | h4;
+            o1 = bits>>16 & 0xff;
+            o2 =  bits>>8 & 0xff;
+            o3 = bits & 0xff;
+            if (h3 == 64) {
+                tmp_arr[ac++] = String.fromCharCode(o1);
+            } else if (h4 == 64) {
+                tmp_arr[ac++] = String.fromCharCode(o1, o2);
+            } else {
+                tmp_arr[ac++] = String.fromCharCode(o1, o2, o3);
+            }
+        } while (i < data.length);
+
+        dec = tmp_arr.join('');
+        dec = utf8_decode(dec);
+        return dec;
+    }
+
+    function getCookie(cookieName) {
+        var asCookies = document.cookie.split("; ");
+        for (var iCnt = 0; iCnt < asCookies.length; iCnt++) {
+            var asCookie = asCookies[iCnt].split("=");
+            if (cookieName == asCookie[0]) {
+                return (unescape(asCookie[1]));
+            }
+        }
+        // SE non esiste il cookie richiesto
+        return("");
+    }
+
+    function userLogged() {
+        var aCookie = base64_decode( getCookie('vb_export') );
+        if ( aCookie == "" ) {
+            return false;
+        } else {
+            aInfos = eval( '(' + aCookie + ')' );
+            if ( aInfos == "" || aInfos['userName'] == undefined || aInfos['userProfile'] == undefined || aInfos['persAvatar'] == undefined || aInfos['userLogoutHash'] == undefined ) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+    }
+
+    function userData(isLogged) {
+        if (isLogged) {
+            return aInfos['userName']+'&&_&&'+aInfos['userLogoutHash'];
+        } else {
+            return '';
+        }
+    }
+
+    var isLogged = userLogged();
+    var uData = userData(isLogged);
+</script> 
+  <!-- END CHECK LOGGED USER --> 
+  <script>
+var registrationUrl = "https://www.giallozafferano.it/utente/registrazione?redirect=";
+var loginUrl = "https://www.giallozafferano.it/utente/login-do.php";
+var redirectUrl = "";
+var recoverPwdUrl = "https://www.giallozafferano.it/utente/recupero-password/";
+var fbLoginUrl = "https://www.facebook.com/v2.10/dialog/oauth?client_id=372884629400015&redirect_uri=https%3A%2F%2Fwww.giallozafferano.it%2Futente%2Flogin-do.php&scope=email";
+var appleLoginUrl = "https://appleid.apple.com/auth/authorize?response_type=code+id_token&response_mode=form_post&client_id=it.giallozafferano.gzricette&redirect_uri=https%3A%2F%2Fwww.giallozafferano.it%2Futente%2Fregistrazione.php&scope=name+email";
+</script> 
+  <script>
+
+    var startPageTimes = {
+        performanceNow : performance.now(),
+        dateNow: Date.now()
+    };
+    console.log('startPageTimes: '+startPageTimes.performanceNow+' - '+startPageTimes.dateNow);
+
+    var pageTimes = {};
+
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    window.paintMetricsSupported = 0;
+    if("performance" in window){
+        var observerTimings = new PerformanceObserver(function(list, obj) {
+
+        window.paintMetricsSupported = 1;
+        var entries = list.getEntries();
+
+        for (var i=0; i < entries.length; i++) {
+                entry = entries[i];
+
+                if(entry.entryType=='paint' && entry.name=='first-contentful-paint') {
+
+                    pageTimes.fcp = Math.round(entry.startTime);
+                    window.startFCP = performance.now();
+                    console.log(entry.name+' time :', pageTimes.fcp);
+                    window.timeForFCP = 1000;
+                    async function postFCP(cb) {
+                        while(typeof window[cb] !== "function") {
+                            await sleep(1000);
+                        }
+
+                        setTimeout(function() {
+                            window[cb]();
+                            let fnTime = performance.now()-startFCP;
+                            console.log('postFCP function ' + cb + ' time: ', fnTime);
+                        }, timeForFCP);
+
+                    }
+                    postFCP('addIubenda');
+                }
+
+                if(entry.entryType=='first-input') {
+                    pageTimes.fid  = Math.round(entry.processingStart - entry.startTime);
+                    console.log('first input delay time:', pageTimes.fid);
+                }
+            }
+        });
+
+        observerTimings.observe({entryTypes: ["paint", "first-input"]})
+
+    }
+
+</script> 
+  <style>
+body {
+	opacity: 0;
+	-webkit-transition: opacity .15s ease-in-out;
+	-o-transition: opacity .15s ease-in-out;
+	transition: opacity .15s ease-in-out;
+}
+.gz-superheader{background-color:#fff;height:30px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}.gz-superheader:before{content:"";display:block;width:4px;height:4px;margin-top:6px;margin-right:10px;border:solid #a8a7a6;border-width:0 1px 1px 0;display:inline-block;-webkit-transform:rotate(135deg);-ms-transform:rotate(135deg);transform:rotate(135deg)}.gz-superheader-logo{width:114px;height:21px;background:url(/style/images/logo-giallozafferano.svg) 0 0 no-repeat;background-size:100% 100%}.gz-superheader-logo a{display:block;width:100%;height:100%;text-indent:-9999em}
+</style> 
+  <link rel="stylesheet" href="/style/reset.css?cb=c2684cf3d85fda3ba51449c20237a8dfe820a819" type="text/css" media="print" data-media="all" onload="this.media = this.getAttribute('data-media')"> 
+  <noscript>
+   <link rel="stylesheet" media="all" href="/style/reset.css?cb=c2684cf3d85fda3ba51449c20237a8dfe820a819">
+  </noscript> 
+  <link rel="stylesheet" href="/style/funtip/style.css?cb=c2684cf3d85fda3ba51449c20237a8dfe820a819" type="text/css" media="print" data-media="all" onload="this.media = this.getAttribute('data-media')"> 
+  <noscript>
+   <link rel="stylesheet" media="all" href="/style/funtip/style.css?cb=c2684cf3d85fda3ba51449c20237a8dfe820a819">
+  </noscript> 
+  <link rel="stylesheet" href="/style/footer.css?cb=c2684cf3d85fda3ba51449c20237a8dfe820a819" type="text/css" media="print" data-media="all" onload="this.media = this.getAttribute('data-media')"> 
+  <noscript>
+   <link rel="stylesheet" media="all" href="/style/footer.css?cb=c2684cf3d85fda3ba51449c20237a8dfe820a819">
+  </noscript> 
+ </head> 
+ <body class="page"> 
+  <div class="site" id="page"> 
+   <div class="gz-superheader"> 
+    <div class="gz-superheader-logo">
+     <a href="https://www.giallozafferano.it/" title="Le Ricette di GialloZafferano.it">Le Ricette di GialloZafferano.it</a>
+    </div> 
+   </div> 
+   <header class="site-header" id="header" role="banner"> 
+    <div class="site-branding"> 
+     <a href="/" class="site-title" rel="home"> 
+      <div class="site-logo"> 
+       <span class="logo-icon"></span> 
+       <h1 class="logo-title"> <span class="ft">FunTip</span> </h1> 
+      </div> 
+      <div class="logo-sep">
+       |
+      </div> 
+      <div class="site-description"> 
+       <span class="ricette">ricette</span> 
+       <span class="minuto">1 MINUTO</span> 
+      </div> </a> 
+    </div> 
+   </header> 
+   <div class="site-content" id="content"> 
+    <div class="container"> 
+     <section class="funtip featured"> 
+      <article class="flex-row"> 
+       <div class="featured-video flex-item"> 
+        <script language="javascript" src="https://ptp.stbm.it/v/3h4r81gzft"></script> 
+       </div> 
+       <div class="featured-recipe flex-item"> 
+        <header class="recipe-header"> 
+         <span class="recipe-date">2 Maggio 2020</span> 
+         <h1>4 primi piatti per la domenica</h1> 
+        </header> 
+        <div class="recipe-content"> 
+         <p class="text-ellipsis"> Primi piatti golosi, cremosi, buonissimi per trasformare la domenica in famiglia in una vera festa. Veloci e facili da preparare, queste ricette sono degli assi nella manica da segnarsi per ogni occasione! </p> 
+        </div> 
+        <footer class="recipe-footer"> 
+         <div class="social"> 
+          <div class="row"> 
+           <div class="col-4 col-xs-4 text-left"> 
+            <span class="circle"><i class="gzi icon-like"></i></span> 
+            <span class="social-count">26,4 mila</span> 
+           </div> 
+           <div class="col-4 col-xs-4 text-center"> 
+            <span class="circle"><i class="gzi icon-share"></i></span> 
+            <span class="social-count">22,3 mila</span> 
+           </div> 
+           <div class="col-4 col-xs-4 text-right"> 
+            <span class="circle"><i class="gzi icon-view"></i></span> 
+            <span class="social-count">1,3 milioni</span> 
+           </div> 
+          </div> 
+         </div>
+         <!-- .social --> 
+         <div class="share"> 
+          <div class="row"> 
+           <div class="col-4 col-xs-4 text-left"> 
+            <a href="https://www.facebook.com/GialloZafferanolive/videos/2756494894419872/" target="_blank"><i class="gzi gzi-medium icon-like"></i> <span class="social-count">Mi piace</span></a> 
+           </div> 
+           <div class="col-4 col-xs-4 text-center"> 
+            <a href="https://www.facebook.com/GialloZafferanolive/videos/2756494894419872/" target="_blank"><i class="gzi gzi-medium icon-share"></i> <span class="social-count">Condividi</span></a> 
+           </div> 
+           <div class="col-4 col-xs-4 text-right"> 
+            <a href="https://www.facebook.com/GialloZafferanolive/videos/2756494894419872/" target="_blank"><i class="gzi gzi-medium icon-comment"></i> <span class="social-count">Commenta</span></a> 
+           </div> 
+          </div> 
+         </div>
+         <!-- .share --> 
+        </footer> 
+       </div> 
+      </article> 
+     </section>
+     <!-- .featured --> 
+     <section class="funtip loop"> 
+      <div id="funtip-loop" class="row flex-row"> 
+       <div class="col-4 col-sm-6 flex-item"> 
+        <article> 
+         <figure class="recipe-thumbnail">
+          <a href="http://funtip.giallozafferano.it/Gelato-senza-gelatiera-ai-frutti-di-bosco.html"><img src="https://www.giallozafferano.it/images/ricette/224/22453/gelato_prev-400w.jpg" srcset="https://www.giallozafferano.it/images/ricette/224/22453/gelato_prev.jpg 2x" alt=""></a>
+         </figure> 
+         <header class="recipe-header">
+          <h2><a href="http://funtip.giallozafferano.it/Gelato-senza-gelatiera-ai-frutti-di-bosco.html">Gelato senza gelatiera ai frutti di bosco</a></h2>
+         </header> 
+         <div class="recipe-content">
+          <p>Ingredienti semplici e freschi per preparare in casa il gelato senza gelatiera <a href="http://funtip.giallozafferano.it/Gelato-senza-gelatiera-ai-frutti-di-bosco.html" class="read-more">leggi</a></p>
+         </div> 
+         <footer class="recipe-footer"> 
+          <div class="social"> 
+           <div class="row"> 
+            <div class="col-4 col-xs-4 text-center"> 
+             <span class="circle"><i class="gzi icon-like"></i></span> 
+             <span class="social-count">1,5 mila</span> 
+            </div> 
+            <div class="col-4 col-xs-4 text-center"> 
+             <span class="circle"><i class="gzi icon-share"></i></span> 
+             <span class="social-count">710</span> 
+            </div> 
+            <div class="col-4 col-xs-4 text-center"> 
+             <span class="circle"><i class="gzi icon-view"></i></span> 
+             <span class="social-count">73,4 mila</span> 
+            </div> 
+           </div> 
+          </div> 
+         </footer> 
+        </article> 
+       </div> 
+       <div class="col-4 col-sm-6 flex-item"> 
+        <article> 
+         <figure class="recipe-thumbnail">
+          <a href="http://funtip.giallozafferano.it/Torta-gelato-biscotto.html"><img src="https://www.giallozafferano.it/images/ricette/224/22454/biscotto_prev-400w.jpg" srcset="https://www.giallozafferano.it/images/ricette/224/22454/biscotto_prev.jpg 2x" alt=""></a>
+         </figure> 
+         <header class="recipe-header">
+          <h2><a href="http://funtip.giallozafferano.it/Torta-gelato-biscotto.html">Torta gelato biscotto</a></h2>
+         </header> 
+         <div class="recipe-content">
+          <p>Facile da preparare a casa e buona come quella che si acquista in gelateria! <a href="http://funtip.giallozafferano.it/Torta-gelato-biscotto.html" class="read-more">leggi</a></p>
+         </div> 
+         <footer class="recipe-footer"> 
+          <div class="social"> 
+           <div class="row"> 
+            <div class="col-4 col-xs-4 text-center"> 
+             <span class="circle"><i class="gzi icon-like"></i></span> 
+             <span class="social-count">0</span> 
+            </div> 
+            <div class="col-4 col-xs-4 text-center"> 
+             <span class="circle"><i class="gzi icon-share"></i></span> 
+             <span class="social-count">0</span> 
+            </div> 
+            <div class="col-4 col-xs-4 text-center"> 
+             <span class="circle"><i class="gzi icon-view"></i></span> 
+             <span class="social-count">0</span> 
+            </div> 
+           </div> 
+          </div> 
+         </footer> 
+        </article> 
+       </div> 
+       <div class="col-4 col-sm-6 flex-item"> 
+        <article> 
+         <figure class="recipe-thumbnail">
+          <a href="http://funtip.giallozafferano.it/Arancini-di-riso.html"><img src="https://www.giallozafferano.it/images/ricette/224/22455/arancini_prev-400w.jpg" srcset="https://www.giallozafferano.it/images/ricette/224/22455/arancini_prev.jpg 2x" alt=""></a>
+         </figure> 
+         <header class="recipe-header">
+          <h2><a href="http://funtip.giallozafferano.it/Arancini-di-riso.html">Arancini di riso</a></h2>
+         </header> 
+         <div class="recipe-content">
+          <p>Tradizionali, facili e buonissimi! Ecco come si preparano! <a href="http://funtip.giallozafferano.it/Arancini-di-riso.html" class="read-more">leggi</a></p>
+         </div> 
+         <footer class="recipe-footer"> 
+          <div class="social"> 
+           <div class="row"> 
+            <div class="col-4 col-xs-4 text-center"> 
+             <span class="circle"><i class="gzi icon-like"></i></span> 
+             <span class="social-count">30,4 mila</span> 
+            </div> 
+            <div class="col-4 col-xs-4 text-center"> 
+             <span class="circle"><i class="gzi icon-share"></i></span> 
+             <span class="social-count">22,6 mila</span> 
+            </div> 
+            <div class="col-4 col-xs-4 text-center"> 
+             <span class="circle"><i class="gzi icon-view"></i></span> 
+             <span class="social-count">1,0 milioni</span> 
+            </div> 
+           </div> 
+          </div> 
+         </footer> 
+        </article> 
+       </div> 
+       <div class="col-4 col-sm-6 flex-item"> 
+        <article> 
+         <figure class="recipe-thumbnail">
+          <a href="http://funtip.giallozafferano.it/Il-Goloso.html"><img src="https://www.giallozafferano.it/images/ricette/223/22398/ilgoloso-400w.jpg" srcset="https://www.giallozafferano.it/images/ricette/223/22398/ilgoloso.jpg 2x" alt=""></a>
+         </figure> 
+         <header class="recipe-header">
+          <h2><a href="http://funtip.giallozafferano.it/Il-Goloso.html">Il Goloso</a></h2>
+         </header> 
+         <div class="recipe-content">
+          <p>IL GOLOSO è una delle due nuove McChicken® Variation nate dalla collaborazione tra McDonald’s e GialloZafferano, con ingredienti di qualità 100% italiani. Pronto a scoprire come si prepara IL GOLOSO? <a href="http://funtip.giallozafferano.it/Il-Goloso.html" class="read-more">leggi</a></p>
+         </div> 
+         <footer class="recipe-footer"> 
+          <div class="social"> 
+           <div class="row"> 
+            <div class="col-4 col-xs-4 text-center"> 
+             <span class="circle"><i class="gzi icon-like"></i></span> 
+             <span class="social-count">1,6 mila</span> 
+            </div> 
+            <div class="col-4 col-xs-4 text-center"> 
+             <span class="circle"><i class="gzi icon-share"></i></span> 
+             <span class="social-count">355</span> 
+            </div> 
+            <div class="col-4 col-xs-4 text-center"> 
+             <span class="circle"><i class="gzi icon-view"></i></span> 
+             <span class="social-count">630,6 mila</span> 
+            </div> 
+           </div> 
+          </div> 
+         </footer> 
+        </article> 
+       </div> 
+       <div class="col-4 col-sm-6 flex-item"> 
+        <article> 
+         <figure class="recipe-thumbnail">
+          <a href="http://funtip.giallozafferano.it/L-Audace.html"><img src="https://www.giallozafferano.it/images/ricette/223/22397/L_audace_foto-400w.jpg" srcset="https://www.giallozafferano.it/images/ricette/223/22397/L_audace_foto.jpg 2x" alt=""></a>
+         </figure> 
+         <header class="recipe-header">
+          <h2><a href="http://funtip.giallozafferano.it/L-Audace.html">L'Audace</a></h2>
+         </header> 
+         <div class="recipe-content">
+          <p>L’AUDACE è una delle due nuove McChicken® Variation nate dalla collaborazione tra McDonald’s e GialloZafferano, con ingredienti di qualità 100% italiani <a href="http://funtip.giallozafferano.it/L-Audace.html" class="read-more">leggi</a></p>
+         </div> 
+         <footer class="recipe-footer"> 
+          <div class="social"> 
+           <div class="row"> 
+            <div class="col-4 col-xs-4 text-center"> 
+             <span class="circle"><i class="gzi icon-like"></i></span> 
+             <span class="social-count">1,0 mila</span> 
+            </div> 
+            <div class="col-4 col-xs-4 text-center"> 
+             <span class="circle"><i class="gzi icon-share"></i></span> 
+             <span class="social-count">201</span> 
+            </div> 
+            <div class="col-4 col-xs-4 text-center"> 
+             <span class="circle"><i class="gzi icon-view"></i></span> 
+             <span class="social-count">607,7 mila</span> 
+            </div> 
+           </div> 
+          </div> 
+         </footer> 
+        </article> 
+       </div> 
+       <div class="col-4 col-sm-6 flex-item"> 
+        <article> 
+         <figure class="recipe-thumbnail">
+          <a href="http://funtip.giallozafferano.it/4-primi-piatti-per-la-domenica.html"><img src="https://www.giallozafferano.it/images/ricette/222/22269/Primi_piatti_domenica-400w.jpg" srcset="https://www.giallozafferano.it/images/ricette/222/22269/Primi_piatti_domenica.jpg 2x" alt=""></a>
+         </figure> 
+         <header class="recipe-header">
+          <h2><a href="http://funtip.giallozafferano.it/4-primi-piatti-per-la-domenica.html">4 primi piatti per la domenica</a></h2>
+         </header> 
+         <div class="recipe-content">
+          <p>Primi buonissimi per tutta la famiglia! <a href="http://funtip.giallozafferano.it/4-primi-piatti-per-la-domenica.html" class="read-more">leggi</a></p>
+         </div> 
+         <footer class="recipe-footer"> 
+          <div class="social"> 
+           <div class="row"> 
+            <div class="col-4 col-xs-4 text-center"> 
+             <span class="circle"><i class="gzi icon-like"></i></span> 
+             <span class="social-count">26,4 mila</span> 
+            </div> 
+            <div class="col-4 col-xs-4 text-center"> 
+             <span class="circle"><i class="gzi icon-share"></i></span> 
+             <span class="social-count">22,3 mila</span> 
+            </div> 
+            <div class="col-4 col-xs-4 text-center"> 
+             <span class="circle"><i class="gzi icon-view"></i></span> 
+             <span class="social-count">1,3 milioni</span> 
+            </div> 
+           </div> 
+          </div> 
+         </footer> 
+        </article> 
+       </div> 
+       <div class="col-4 col-sm-6 flex-item"> 
+        <article> 
+         <figure class="recipe-thumbnail">
+          <a href="http://funtip.giallozafferano.it/4-secondi-piatti-con-il-pollo.html"><img src="https://www.giallozafferano.it/images/ricette/222/22266/secondi_di_pollo-400w.jpg" srcset="https://www.giallozafferano.it/images/ricette/222/22266/secondi_di_pollo.jpg 2x" alt=""></a>
+         </figure> 
+         <header class="recipe-header">
+          <h2><a href="http://funtip.giallozafferano.it/4-secondi-piatti-con-il-pollo.html">4 secondi piatti con il pollo</a></h2>
+         </header> 
+         <div class="recipe-content">
+          <p>Uno più buono dell'altro! <a href="http://funtip.giallozafferano.it/4-secondi-piatti-con-il-pollo.html" class="read-more">leggi</a></p>
+         </div> 
+         <footer class="recipe-footer"> 
+          <div class="social"> 
+           <div class="row"> 
+            <div class="col-4 col-xs-4 text-center"> 
+             <span class="circle"><i class="gzi icon-like"></i></span> 
+             <span class="social-count">10,9 mila</span> 
+            </div> 
+            <div class="col-4 col-xs-4 text-center"> 
+             <span class="circle"><i class="gzi icon-share"></i></span> 
+             <span class="social-count">9,0 mila</span> 
+            </div> 
+            <div class="col-4 col-xs-4 text-center"> 
+             <span class="circle"><i class="gzi icon-view"></i></span> 
+             <span class="social-count">837,1 mila</span> 
+            </div> 
+           </div> 
+          </div> 
+         </footer> 
+        </article> 
+       </div> 
+       <div class="col-4 col-sm-6 flex-item"> 
+        <article> 
+         <figure class="recipe-thumbnail">
+          <a href="http://funtip.giallozafferano.it/Spaghetti-al-pomodoro.html"><img src="https://www.giallozafferano.it/images/ricette/222/22265/Spaghetti_al_pomodoro_3_di_8_-400w.jpg" srcset="https://www.giallozafferano.it/images/ricette/222/22265/Spaghetti_al_pomodoro_3_di_8_.jpg 2x" alt=""></a>
+         </figure> 
+         <header class="recipe-header">
+          <h2><a href="http://funtip.giallozafferano.it/Spaghetti-al-pomodoro.html">Spaghetti al pomodoro</a></h2>
+         </header> 
+         <div class="recipe-content">
+          <p>Il primo piatto per eccellenza! <a href="http://funtip.giallozafferano.it/Spaghetti-al-pomodoro.html" class="read-more">leggi</a></p>
+         </div> 
+         <footer class="recipe-footer"> 
+          <div class="social"> 
+           <div class="row"> 
+            <div class="col-4 col-xs-4 text-center"> 
+             <span class="circle"><i class="gzi icon-like"></i></span> 
+             <span class="social-count">2,8 mila</span> 
+            </div> 
+            <div class="col-4 col-xs-4 text-center"> 
+             <span class="circle"><i class="gzi icon-share"></i></span> 
+             <span class="social-count">671</span> 
+            </div> 
+            <div class="col-4 col-xs-4 text-center"> 
+             <span class="circle"><i class="gzi icon-view"></i></span> 
+             <span class="social-count">112,9 mila</span> 
+            </div> 
+           </div> 
+          </div> 
+         </footer> 
+        </article> 
+       </div> 
+       <div class="col-4 col-sm-6 flex-item"> 
+        <article> 
+         <figure class="recipe-thumbnail">
+          <a href="http://funtip.giallozafferano.it/4-secondi-piatti-per-la-domenica.html"><img src="https://www.giallozafferano.it/images/ricette/222/22240/secondi_piatti_domenica-400w.jpg" srcset="https://www.giallozafferano.it/images/ricette/222/22240/secondi_piatti_domenica.jpg 2x" alt=""></a>
+         </figure> 
+         <header class="recipe-header">
+          <h2><a href="http://funtip.giallozafferano.it/4-secondi-piatti-per-la-domenica.html">4 secondi piatti per la domenica</a></h2>
+         </header> 
+         <div class="recipe-content">
+          <p>Idee per tutti i gusti per i pranzi in famiglia! <a href="http://funtip.giallozafferano.it/4-secondi-piatti-per-la-domenica.html" class="read-more">leggi</a></p>
+         </div> 
+         <footer class="recipe-footer"> 
+          <div class="social"> 
+           <div class="row"> 
+            <div class="col-4 col-xs-4 text-center"> 
+             <span class="circle"><i class="gzi icon-like"></i></span> 
+             <span class="social-count">5,3 mila</span> 
+            </div> 
+            <div class="col-4 col-xs-4 text-center"> 
+             <span class="circle"><i class="gzi icon-share"></i></span> 
+             <span class="social-count">4,2 mila</span> 
+            </div> 
+            <div class="col-4 col-xs-4 text-center"> 
+             <span class="circle"><i class="gzi icon-view"></i></span> 
+             <span class="social-count">405,6 mila</span> 
+            </div> 
+           </div> 
+          </div> 
+         </footer> 
+        </article> 
+       </div> 
+       <div class="col-4 col-sm-6 flex-item"> 
+        <article> 
+         <figure class="recipe-thumbnail">
+          <a href="http://funtip.giallozafferano.it/Strudel-di-pere-e-cioccolato.html"><img src="https://www.giallozafferano.it/images/ricette/222/22252/Strudel_pere_e_cioccolato_5_di_8_-400w.jpg" srcset="https://www.giallozafferano.it/images/ricette/222/22252/Strudel_pere_e_cioccolato_5_di_8_.jpg 2x" alt=""></a>
+         </figure> 
+         <header class="recipe-header">
+          <h2><a href="http://funtip.giallozafferano.it/Strudel-di-pere-e-cioccolato.html">Strudel di pere e cioccolato</a></h2>
+         </header> 
+         <div class="recipe-content">
+          <p>Una variante dolcissima di quello alle mele! <a href="http://funtip.giallozafferano.it/Strudel-di-pere-e-cioccolato.html" class="read-more">leggi</a></p>
+         </div> 
+         <footer class="recipe-footer"> 
+          <div class="social"> 
+           <div class="row"> 
+            <div class="col-4 col-xs-4 text-center"> 
+             <span class="circle"><i class="gzi icon-like"></i></span> 
+             <span class="social-count">3,0 mila</span> 
+            </div> 
+            <div class="col-4 col-xs-4 text-center"> 
+             <span class="circle"><i class="gzi icon-share"></i></span> 
+             <span class="social-count">1,9 mila</span> 
+            </div> 
+            <div class="col-4 col-xs-4 text-center"> 
+             <span class="circle"><i class="gzi icon-view"></i></span> 
+             <span class="social-count">133,7 mila</span> 
+            </div> 
+           </div> 
+          </div> 
+         </footer> 
+        </article> 
+       </div> 
+       <div class="col-4 col-sm-6 flex-item"> 
+        <article> 
+         <figure class="recipe-thumbnail">
+          <a href="http://funtip.giallozafferano.it/4-dolci-facili-al-cioccolato.html"><img src="https://www.giallozafferano.it/images/ricette/222/22232/compilation_dolci_al_cioccolato-400w.jpg" srcset="https://www.giallozafferano.it/images/ricette/222/22232/compilation_dolci_al_cioccolato.jpg 2x" alt=""></a>
+         </figure> 
+         <header class="recipe-header">
+          <h2><a href="http://funtip.giallozafferano.it/4-dolci-facili-al-cioccolato.html">4 dolci facili al cioccolato</a></h2>
+         </header> 
+         <div class="recipe-content">
+          <p>Dolci al cioccolato per tutti i gusti! <a href="http://funtip.giallozafferano.it/4-dolci-facili-al-cioccolato.html" class="read-more">leggi</a></p>
+         </div> 
+         <footer class="recipe-footer"> 
+          <div class="social"> 
+           <div class="row"> 
+            <div class="col-4 col-xs-4 text-center"> 
+             <span class="circle"><i class="gzi icon-like"></i></span> 
+             <span class="social-count">16,6 mila</span> 
+            </div> 
+            <div class="col-4 col-xs-4 text-center"> 
+             <span class="circle"><i class="gzi icon-share"></i></span> 
+             <span class="social-count">14,8 mila</span> 
+            </div> 
+            <div class="col-4 col-xs-4 text-center"> 
+             <span class="circle"><i class="gzi icon-view"></i></span> 
+             <span class="social-count">642,8 mila</span> 
+            </div> 
+           </div> 
+          </div> 
+         </footer> 
+        </article> 
+       </div> 
+       <div class="col-4 col-sm-6 flex-item"> 
+        <article> 
+         <figure class="recipe-thumbnail">
+          <a href="http://funtip.giallozafferano.it/4-dolci-facili-con-le-fragole.html"><img src="https://www.giallozafferano.it/images/ricette/222/22231/compilation_fragole-400w.jpg" srcset="https://www.giallozafferano.it/images/ricette/222/22231/compilation_fragole.jpg 2x" alt=""></a>
+         </figure> 
+         <header class="recipe-header">
+          <h2><a href="http://funtip.giallozafferano.it/4-dolci-facili-con-le-fragole.html">4 dolci facili con le fragole</a></h2>
+         </header> 
+         <div class="recipe-content">
+          <p>Tante idee per usare le fragole nei tuoi dolci! <a href="http://funtip.giallozafferano.it/4-dolci-facili-con-le-fragole.html" class="read-more">leggi</a></p>
+         </div> 
+         <footer class="recipe-footer"> 
+          <div class="social"> 
+           <div class="row"> 
+            <div class="col-4 col-xs-4 text-center"> 
+             <span class="circle"><i class="gzi icon-like"></i></span> 
+             <span class="social-count">5,8 mila</span> 
+            </div> 
+            <div class="col-4 col-xs-4 text-center"> 
+             <span class="circle"><i class="gzi icon-share"></i></span> 
+             <span class="social-count">4,0 mila</span> 
+            </div> 
+            <div class="col-4 col-xs-4 text-center"> 
+             <span class="circle"><i class="gzi icon-view"></i></span> 
+             <span class="social-count">381,5 mila</span> 
+            </div> 
+           </div> 
+          </div> 
+         </footer> 
+        </article> 
+       </div> 
+      </div> 
+     </section>
+     <!-- .loop --> 
+     <p class="view-all"><a href="/">vedi tutte</a></p> 
+    </div>
+    <!-- .container --> 
+   </div> 
+   <div id="flyfirst-mobile-placement"></div> 
+   <div id="flyfirst-slot"></div> 
+   <footer class="gz-footer gz-elevator-ame-base" id="gz-footer"> 
+    <div class="gz-sitewidth"> 
+     <div class="gz-row"> 
+      <a class="gz-logo-footer" href="https://www.giallozafferano.it/" title="Ricette di cucina - Le ricette di GialloZafferano">Giallozafferano</a> 
+      <div class="gz-text-footer"> 
+       <p> <strong>© 2021 Mondadori Media S.p.A.</strong> - via Bianca di Savoia 12 - 20122 Milano - P.IVA 08009080964 - riproduzione riservata </p> 
+       <ul> 
+        <li><a title="Chi siamo" href="https://www.giallozafferano.it/staff/chisiamo.html">Chi siamo</a></li> 
+        <li><a title="Condizioni di servizio" href="http://privacy.stbm.it/site/giallozafferano/condizioni-generali.html" onclick="footerlinks(this.href,'condizioni'); return false">Condizioni d'uso</a></li> 
+        <li><a title="Privacy" href="https://digital.mondadori.it/privacy/informativasiti/mondadorieditore.html" onclick="footerlinks(this.href,'informativa'); return false">Privacy</a></li> 
+        <li><a title="Privacy Policy" href="http://www.mondadori.it/privacy-policy" onclick="footerlinks(this.href,'privacy'); return false">Privacy Policy</a></li> 
+        <li><a title="Cookie Privacy" href="https://www.iubenda.com/privacy-policy/81919939/cookie-policy" onclick="footerlinks(this.href,'cookiepolicy'); return false">Cookie Policy</a></li> 
+        <li><a title="Personalizza tracciamento" href="#" class="iubenda-advertising-preferences-link">Personalizza tracciamento</a></li> 
+        <li><a title="Disclaimer" href="https://www.giallozafferano.it/static/disclaimer.html" onclick="footerlinks(this.href,'disclaimer'); return false">Disclaimer</a></li> 
+        <li><a title="Gruppo Mondadori" href="https://www.mondadori.it">Gruppo Mondadori</a></li> 
+        <li><a title="I blog di Giallozafferano" href="https://blog.giallozafferano.it/community/">I blog di Giallozafferano</a></li> 
+        <li><a title="In edicola" href="https://www.giallozafferano.it/in-edicola">In edicola</a></li> 
+       </ul> 
+      </div> 
+     </div> 
+    </div> 
+   </footer> 
+  </div>
+  <!-- .site --> 
+  <script>
+	function isConsentGiven (siteId,cookiePolicyId){
+		var cs = document.cookie.split(';');
+		for (var i = 0; i < cs.length; i++) {
+			while (cs[i].charAt(0) == ' ') cs[i] = cs[i].substring(1);
+			if(cs[i].indexOf('_iub_cs-s'+ siteId) == 0||cs[i].indexOf('_iub_cs-'+ cookiePolicyId) == 0) return true;
+		}
+		return false;
+	}
+</script> 
+  <script>
+var F = {
+	c: 13,
+	recipesCount: 473,
+	rm: document.getElementById('read-more'),
+	init: function() {
+		if (F.recipesCount < F.c && F.rm) F.rm.style.display = 'none';
+	},
+	readMore: function() {
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET', 'https://funtip.giallozafferano.it/?more='+F.c);
+		xhr.addEventListener('load', function(ev) {
+			document.getElementById("funtip-loop").innerHTML += ev.target.responseText;
+			F.c += 12;
+			if (F.recipesCount < F.c && F.rm) F.rm.style.display = 'none';
+		}, false);
+		xhr.send();
+		return false;
+	}
+}
+
+F.init();
+
+window.addEventListener('load', function() { document.body.scrollTop = 0 }, false);
+</script> 
+  <script src="/js/jquery-3.3.1.min.js"></script> 
+  <!-- ANALYTICS --> 
+  <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-678608-2', 'auto');
+        ga('create', 'UA-170089332-1', 'auto', 'testFe');
+
+        window.startInitAllowAdFeaturesAnalytics= performance.now();
+        if ('requestIdleCallback' in window) {
+            console.log('initAllowAdFeaturesAnalytics init Idle');
+            window.requestIdleCallback(function() {
+                allowAdFeatures();
+            }, { timeout: 1000 })
+        } else {
+            console.log('initAllowAdFeaturesAnalytics init Default');
+            allowAdFeatures();
+        }
+
+        function allowAdFeatures() {
+            console.log('initAllowAdFeaturesAnalytics start time',performance.now()-window.startInitAllowAdFeaturesAnalytics);
+            if(isConsentGiven(1779545, 81919939)) {
+                ga('set', 'allowAdFeatures', true);
+                ga('testFe.set', 'allowAdFeatures', true);
+            } else {
+                ga('set', 'allowAdFeatures', false);
+                ga('testFe.set', 'allowAdFeatures', false);
+            }
+            ga('set', 'anonymizeIp', true);
+            ga('testFe.set', 'anonymizeIp', true);
+        }
+        
+
+                var dimensionValue = 'Standard';
+            ga('set', 'dimension17', dimensionValue);
+
+    </script> 
+  <script>
+
+            ga('send', 'pageview');
+    
+    </script> 
+  <!-- END ANALYTICS --> 
+  <!-- TEALIUM --> 
+  <script>
+        (function(a,b,c,d)
+            {
+                a='//tags.tiqcdn.com/utag/mediaset/dig.giallozafferano.it/prod/utag.js';
+                b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.async=true;
+                a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
+            }
+        )();
+    </script> 
+  <!-- END TEALIUM --> 
+  <!-- NETWORK COMMON --> 
+  <!--script defer src="https://dafne.sirio.stbm.it/utility-fe/prod/general/network.common.v2.js"></script--> 
+  <script>
+window.addIubendaCheck = 0;
+function addIubenda() {
+	if (window.addIubendaCheck == 1) return false;
+	console.log("addIubenda running");
+	window.addIubendaCheck = 1;
+
+
+    let scriptIub = document.createElement('script');
+	scriptIub.src = "https://dafne.sirio.stbm.it/utility-fe/prod/general/network.common.v3.js";
+	scriptIub.defer = "true";
+	document.body.appendChild(scriptIub);
+}
+
+setTimeout(() => {
+	if(!("performance" in window) || window.paintMetricsSupported == 0){
+			console.log('fallback addIubenda');
+			addIubenda();
+	}
+}, 2000);
+
+</script> 
+  <!-- END NETWORK COMMON --> 
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Amatic+SC:400,700"> 
+  <style>html body {opacity:1;}</style>   
+ </body>
+</html>
