@@ -8,7 +8,7 @@ This Java project implements a web crawler  to collect pages from a domain, usef
   - **.settings:** IDE settings files.
   - **bin:** Compiled Java class files (generated during build).
   - **saves:** Directory to store temporary crawl data (can be used for resuming crawls).
-  - **domains/giallozafferano.it:** Domain-specific configuration and data.
+  - **domains/giallozafferano.it:** Domain-specific html pages are saved.
   - **results/FoodNames:** Output directory where extracted data are stored.
   - **src:** Source code directory.
     - **Analyzer.java:**  Analyzes web page content to extract data.
